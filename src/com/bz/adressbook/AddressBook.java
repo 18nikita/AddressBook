@@ -1,9 +1,11 @@
 package com.bz.adressbook;
 
+import java.util.Scanner;
+
 public class AddressBook {
 
 	public static void main(String[] args) {
-		// Welcome message
+		// Welcome Address Book
 		System.out.println("....WELCOME TO ADDRESS BOOK....");
 		contactDetails newContact = new contactDetails();
 		newContact.setFirstName("Nikita \n");
@@ -13,8 +15,42 @@ public class AddressBook {
 		newContact.setZip(416106);
 		newContact.setEmail("rajputnikita5666@gmail.com \n");
 		newContact.setPhoneNumber(1234567890);
-		System.out.println("The Contact is : " + newContact);
+		System.out.println("The Contact Book : \n " + newContact);
+		
+		addContact();
 	}
+
+	private static void addContact() {
+		Scanner sc = new Scanner(System.in);
+		contactDetails person = new contactDetails();
+		System.out.println("Enter First Name: ");
+		String firstName = sc.nextLine();
+		System.out.println("Enter last Name: ");
+		String lastName = sc.nextLine();
+		System.out.println("Enter your addressCity: ");
+		String addressCity = sc.nextLine();
+		System.out.println("Enter your state: ");
+		String state = sc.nextLine();
+		System.out.println("Enter zip code : ");
+		Long zip = sc.nextLong();
+		sc.nextLine();
+		System.out.println("Enter phone number: ");
+		Long phoneNumber = sc.nextLong();
+		sc.nextLine();
+		System.out.println("Enter your EMail ID: ");
+		String email = sc.nextLine();
+		person.setFirstName(firstName);
+		person.setLastName(lastName);
+		person.setAddressCity(addressCity);
+		person.setState(state);
+		person.setZip(zip.intValue());
+		person.setPhoneNumber(phoneNumber.intValue());
+		person.setEmail(email);
+		System.out.println("The Contact Details of " + firstName + "\n" + person);
+	
+	}
+
+	
 }
 
 class contactDetails {
