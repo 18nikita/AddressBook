@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AddressBook {
 
 	static Scanner sc = new Scanner(System.in);
+	static contactDetails person = new contactDetails();
 
 	public static void main(String[] args) {
 		// Welcome Address Book
@@ -21,12 +22,21 @@ public class AddressBook {
 
 		addContact();
 		editContact();
+		deleteContact();
+	}
+
+	private static void deleteContact() {
+		   System.out.println("Enter firstName of the person");
+	         String editName = sc.nextLine();
+	         if (editName.equals(person.getFirstName())) {
+	             System.out.println("Deleted " + person.getFirstName() + " details");
+	             person = null;
+	         }
 	}
 
 	private static void editContact() {
 		System.out.println("Enter the firstName of person");
 		String editName = sc.nextLine();
-		contactDetails person = new contactDetails();
 		if (editName.equalsIgnoreCase(person.getFirstName()))
 			addContact();
 		else
